@@ -1,12 +1,7 @@
-import { useState } from "react";
+import { useState } from 'react'
 
 export const useInputValue = initialValue => {
-  const [value, setValue] = useState(initialValue);
+  const [value, setValue] = useState(initialValue)
 
-  return [
-    value,
-    function onChange(e) {
-      e.target && e.target.value ? setValue(e.target.value) : setValue("");
-    },
-  ];
-};
+  return [value, (onChange = e => setValue(e.target.value))]
+}
